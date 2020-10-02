@@ -1,4 +1,4 @@
-# Audio Streamig 
+# Audio Streaming 
 
 ## **Content**
 * [To Record and Playback](#to-record-and-playback)
