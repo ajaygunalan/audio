@@ -3,7 +3,7 @@
 ## **Content**
 * [To Record and Playback](#to-record-and-playback)
 * [trx: Realtime audio over IP](#trx-realtime-audio-over-ip)
-* [To beamform](http://groups.csail.mit.edu/cag/mic-array/)
+* [Beamform](#beamform)
 
 ## To Record and Playback
 
@@ -57,7 +57,9 @@ To Record: ` arecord -D hw:0,0,0 -f S16_LE -c 2 -r 48000 recorded.wav` and To Pl
 * If you are able to ping. But, still not able to send and receive messages then your firewall might be blocking: [Do answer 2](https://superuser.com/questions/560969/ncat-only-works-in-certain-scenarios/561848)
 
 
-**To Get Data from the [Mic](https://www.xmos.com/products/voice/micarray)**
+## Beamform 
+
+**For ODAS &  [XMOS Microphone array](https://www.xmos.com/products/voice/micarray)**
 
 1. Install odas, follow the steps [here](https://github.com/introlab/odas/wiki/installation).
 2. Then [install odas web](https://github.com/introlab/odas_web)
@@ -69,7 +71,6 @@ To Record: ` arecord -D hw:0,0,0 -f S16_LE -c 2 -r 48000 recorded.wav` and To Pl
 For Sound Source Localization (ssl), Sound Source Tracking (sst) and  Sound Source Separation (sss) modify the [various parameters](https://github.com/introlab/odas/wiki/configuration).
 
 You will get two audio files, nameley, `postfiltered.raw` and `separated.raw` . Open these file in [audacity](https://www.audacityteam.org/) --> files --> import --> raw amd select th following settings:
-
 
 ![](./settings.png)
 
