@@ -109,3 +109,11 @@ ODAS github issues which are useful:
 7. [Beamforming in PulseAudio](https://arunraghavan.net/2016/06/beamforming-in-pulseaudio/)
 8. [Binaural sound source localization - Software](http://www.laurentcalmes.lu/soundloc_software.html)
 9. [Microphone Array Beamforming](http://www.labbookpages.co.uk/audio/beamforming.html)
+
+**Approcah for real-time beamforming:**
+1. Record the sound in the actual environment.
+2. Peform offline beamforming in Matlab to make sure your alogorith works.
+3. Use [trx] as base and implement your alogirth by having ODAS and ROS packgae as a reference.
+
+Why not directly use ODAS and ROS package?
+1. I achieved basic results which wokred but were not reliable. Thus, in order to incerase the reliabality, we need to understand in depth and fine tune accordingly based upon the problems we face.
