@@ -5,6 +5,7 @@
 * [To send message to another ubuntu PC using ethernet crossover cable](#to-send-message-to-another-ubuntu-pc-using-ethernet-crossover-cable)
 * [trx: Realtime audio over IP](#trx-realtime-audio-over-ip)
 * [Beamform](#beamform)
+* [Beamform](#beamform)
 
 ## To Record and Playback
 
