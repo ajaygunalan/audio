@@ -2,6 +2,7 @@
 
 ## **Content**
 * [To Record and Playback](#to-record-and-playback)
+* [To send message to another ubuntu PC using ethernet crossover cable](#to-send-message-to-another-ubuntu-pc-using-ethernet-crossover-cable)
 * [trx: Realtime audio over IP](#trx-realtime-audio-over-ip)
 * [Beamform](#beamform)
 
@@ -20,6 +21,20 @@ To Record: ` arecord -D hw:0,0,0 -f S16_LE -c 2 -r 48000 recorded.wav` and To Pl
 
 **Note:**
 * Do this in order to check the quality of the hardware.
+
+## To send message to another ubuntu PC using ethernet crossover cable
+
+**Steps:**
+* Connect both the PC by ethernet crossover cable.
+* Go to wired network setting -> IPv4 ->  select Link-Local Only in both the PC.
+* Find your the local ip address by `hostname -I` , say for PC1: `169.254.21.232` and PC2: `169.254.31.155`
+* You can test the connection by `ping <ip-addrress-of-other-PC>`
+* On the receiving computer do `nc -l 3333`
+* On the sending computer do `nc <ip-addrress-of-receiving-PC> 3333`
+* Then just start typing and the text will show up on the other computer (after you press enter) until you hit ctlr+c. 
+
+**Troubleshoots**
+* If you are able to ping. But, still not able to send and receive messages then your firewall might be blocking: [Do answer 2](https://superuser.com/questions/560969/ncat-only-works-in-certain-scenarios/561848)
 
 ## trx: Realtime audio over IP
 
@@ -41,21 +56,6 @@ To Record: ` arecord -D hw:0,0,0 -f S16_LE -c 2 -r 48000 recorded.wav` and To Pl
 * sched_setscheduler: Operation not permitted: [1](https://forums.developer.nvidia.com/t/operation-not-permitted-by-using-sched-setscheduler/70114)
 * Home directory not accessible: Permission denied: (sudo su) But, other solutions?
 * `pulseaudio --start` to start pulseaudio. Ref [1](https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout)
-
-## To send message to another ubuntu PC using ethernet crossover cable
-
-**Steps:**
-* Connect both the PC by ethernet crossover cable.
-* Go to wired network setting -> IPv4 ->  select Link-Local Only in both the PC.
-* Find your the local ip address by `hostname -I` , say for PC1: `169.254.21.232` and PC2: `169.254.31.155`
-* You can test the connection by `ping <ip-addrress-of-other-PC>`
-* On the receiving computer do `nc -l 3333`
-* On the sending computer do `nc <ip-addrress-of-receiving-PC> 3333`
-* Then just start typing and the text will show up on the other computer (after you press enter) until you hit ctlr+c. 
-
-**Troubleshoots**
-* If you are able to ping. But, still not able to send and receive messages then your firewall might be blocking: [Do answer 2](https://superuser.com/questions/560969/ncat-only-works-in-certain-scenarios/561848)
-
 
 ## Beamform 
 
