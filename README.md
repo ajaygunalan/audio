@@ -1,5 +1,64 @@
 # Audio
 
+# Microphone
+
+## **Content**
+* [To Record and Playback](#to-record-and-playback)
+* [trx: Realtime audio over IP](#trx-realtime-audio-over-ip)
+* [To beamform](http://groups.csail.mit.edu/cag/mic-array/)
+
+## To Record and Playback
+
+**Steps:**
+
+To Record: ` arecord -D hw:0,0,0 -f S16_LE -c 2 -r 48000 recorded.wav` and To Play: `aplay recorded.wav`
+
+**For XMOS Microphone array:**
+* run ./[xmos_recorder.sh](./xmos_recorder.sh)  It uses Gstreamer
+
+**Reference:**
+* [Raspberry Pi Wiring & Test](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-and-test)
+* [Playing with ALSA loopback devices](https://sysplay.in/blog/tag/arecord/)
+
+**Note:**
+* Do this in order to check the quality of the hardware.
+
+## trx: Realtime audio over IP
+
+**Steps:**
+ * Download `wget www.pogo.org.uk/~mark/trx/releases/trx-0.3.tar.gz` and Unzip it`tar xvf trx-0.3.tar.gz`
+ * Make sure you have the dependencies or else install it by: `sudo apt install libortp-dev libopus0 libopus-dev libasound2-dev alsa alsa-tools`
+ * `cd trx-0.3` and `sudo make` to build and `sudo make install` to install the binaries
+ *  To send audio from default soundcard to the given host: `sudo tx -h 169.254.88.116` and to receive audio and play it: `rx`
+ *  For sending audio from a specific device to specific port: `sudo tx -h 10.255.43.100 -d plughw:2,0 -p 5555` & `sudo rx -h 10.255.43.100 -p 5555`  the ip address is the address of the client.
+ *  To receive it using ffmpeg: `ffplay rtp://169.254.88.116:1350 -acodec opus` (**ffmpeg has cross platform support**)
+
+**Reference:**
+* [Official page](http://www.pogo.org.uk/%7Emark/trx/)
+
+**Note:**
+* **Works well...! :smiley:**
+
+**Troubleshoots**
+* sched_setscheduler: Operation not permitted: [1](https://forums.developer.nvidia.com/t/operation-not-permitted-by-using-sched-setscheduler/70114)
+* Home directory not accessible: Permission denied: (sudo su) But, other solutions?
+* `pulseaudio --start` to start pulseaudio. Ref [1](https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout)
+
+## To send message to another ubuntu PC using ethernet crossover cable
+
+**Steps:**
+* Connect both the PC by ethernet crossover cable.
+* Go to wired network setting -> IPv4 ->  select Link-Local Only in both the PC.
+* Find your the local ip address by `hostname -I` , say for PC1: `169.254.21.232` and PC2: `169.254.31.155`
+* You can test the connection by `ping <ip-addrress-of-other-PC>`
+* On the receiving computer do `nc -l 3333`
+* On the sending computer do `nc <ip-addrress-of-receiving-PC> 3333`
+* Then just start typing and the text will show up on the other computer (after you press enter) until you hit ctlr+c. 
+
+**Troubleshoots**
+* If you are able to ping. But, still not able to send and receive messages then your firewall might be blocking: [Do answer 2](https://superuser.com/questions/560969/ncat-only-works-in-certain-scenarios/561848)
+
+
 **To Get Data from the [Mic](https://www.xmos.com/products/voice/micarray)**
 
 1. Install odas, follow the steps [here](https://github.com/introlab/odas/wiki/installation).
