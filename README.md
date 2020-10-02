@@ -97,10 +97,10 @@ ODAS github issues which are useful:
 * [Various configuration questions](https://github.com/introlab/odas/issues/15)
 
 
-## References for listening in a specific direction (Beamforming)**
+## Other Potential References for Beamforming
 
 1. [MIT beamforming](http://groups.csail.mit.edu/cag/mic-array/)
-2. [ROS beamforming package](https://github.com/balkce/beamform) 
+2. [ROS beamforming package](https://github.com/balkce/beamform) [example](https://github.com/balkce/beamform/issues/1)
 3. [Acoular – Acoustic testing and source mapping software](http://www.acoular.org/)
 4. [Beamforming in PulseAudio](https://arunraghavan.net/2016/06/beamforming-in-pulseaudio/)
 5. [Pyroomacoustics](https://github.com/LCAV/pyroomacoustics)
