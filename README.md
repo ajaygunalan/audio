@@ -116,5 +116,5 @@ ODAS github issues which are useful:
 3. Use [trx](http://www.pogo.org.uk/~mark/trx/) as the base and implement your algorithm by having [ODAS](https://github.com/introlab/odas) and [ROS package](https://github.com/balkce/beamform) as a reference.
 
 **Why not directly use ODAS and ROS package?**
-  I achieved basic results that worked but were not reliable. Thus, in order to improve reliability, we need to understand in-depth and fine-tune based upon the problems we face.
 
+I achieved basic results in both libraries that worked but were not reliable. Thus, in order to improve reliability, we need to understand the problem in-depth and fine-tune based upon our system.
